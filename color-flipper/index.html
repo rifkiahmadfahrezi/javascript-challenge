@@ -14,14 +14,40 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
    }
 </style>
 
 <body>
     
     <main>
-        <h1>Color : <span id="bg-color">RED</span></h1>
+        <h1>Color : <span id="bg-color" style="text-transform: capitalize;">Red</span></h1>
         <button id="btn" type="button">change color</button>
     </main>
+    
+    
+    
+
+<script>
+    const button = document.querySelector("#btn")
+    const text = document.querySelector("#bg-color")
+  
+    let i = 1
+    button.addEventListener("click", () => {
+
+        const colors = ["red","orange","blue","salmon","lightgreen"]
+        
+        text.innerText = colors[i]
+        document.body.style = `background-color: ${text.innerText};`
+        
+        i++
+        
+        if(i > 4){
+          i = 0
+        }
+        
+    })
+</script>
+
 </body>
 </html>
