@@ -22,10 +22,44 @@
 
 <body>
   <main>
-    <h1>0</h1>
+    <h1 id="number">0</h1>
     <button type="button" id="decrease">decrease</button>
     <button type="button" id="reset">reset</button>
     <button type="button" id="increase">increase</button>
   </main>
+
+<script>
+  const dc = document.querySelector("#decrease")
+  const rst = document.querySelector("#reset")
+  const inc = document.querySelector("#increase")
+  const number = document.querySelector("#number")
+  
+  let num = Number(number.innerText)
+  
+  // get all buttons element
+  document.querySelectorAll("button").forEach(e => {
+    e.addEventListener("click", () => {
+      switch(e.id){
+        // if decrease btn clicked
+        case "decrease":
+          // decrease the number inside the text
+          number.innerText = num--
+        break;
+        // if reset btn clicked
+        case "reset":
+          //reset the number inside the text to 0
+          num = 0
+          number.innerText = num
+        break;
+         // if increase btn clicked
+        case "increase":
+          // decrease the number inside the text
+          number.innerText = num++
+        break;
+        
+      }
+    })
+  })
+</script>
 </body>
 </html>
