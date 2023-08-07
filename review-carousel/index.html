@@ -1,1 +1,79 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>carousel review</title>
+</head>
+<style>
+  body{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    place-items: center;
+    font-family: Sans-Serif;
+  }
+  
+  .title{
+    text-decoration: underline;
+  }
+  
+  .container .review-box{
+    display: grid;
+    max-width: 600px;
+    place-items: center;
+    text-align: center;
+    border: 1px solid black;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  .profile-box .img-profile{
+    display: block;
+    height: 75px;
+    margin: 10px auto;
+    width: 75px;
+    background: lime;
+    border-radius: 50%;
+  }
+  .name{
+    font-weight: bold;
+    text-transform: capitalize;
+  }
+  .job{
+    font-weight:300;
+    text-transform: capitalize;
+  }
+  .review-txt{
+    margin: 20px auto;
+    
+  }
+</style>
+<body>
+  <h1 class="title">Our Reviews</h1>
+  
+  <div class="container">
+    <div class="review-box">
+      <div class="profile-box">
+        <div class="img-profile">
+          photo
+        </div>
+        <div class="name">slim shady</div>
+        <div class="job">doctor</div>
+      </div>
+      
+      <div class="review-txt">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quasi necessitatibus corporis, maxime. Sit, officia, ea!
+      </div>
+      
+      <div class="action-btn">
+        <button type="button" id="prev"><</button>
+        <button type="button" id="next">></button>
+      </div>
+      
+      
+    </div>
+  </div>
+</body>
+</html>
