@@ -18,6 +18,7 @@ button {
 }
 
 .modal-box{
+  transition: .5s;
   width: 300px;
   height: 200px;
   background: white;
