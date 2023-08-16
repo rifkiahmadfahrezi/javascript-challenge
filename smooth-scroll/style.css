@@ -1,0 +1,222 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Sans-Serif;
+    /* color: white; */
+    text-decoration: none;
+  }
+  html{
+    scroll-behavior: smooth;
+  }
+  nav#navbar{
+    display: flex;
+    width: 100vw;
+    transition: .5s;
+    z-index: 99;
+    justify-content: space-between;
+    height: 50px;
+    align-items: center;
+    position: fixed;
+  }
+  
+  nav .logo{
+    font-weight: bold;
+    color: white;
+    letter-spacing: 1px;
+    font-size: 1.6em;
+    margin-left: 10px;
+  }
+  
+  nav .menu-wrapper{
+    display: flex;
+    margin-right: 10px;
+    width: 50%;
+    justify-content: space-between;
+  }
+  nav .menu-wrapper .menu-item{
+    color: #efefef;
+  }
+  nav .menu-wrapper .menu-item:hover{
+    color: white;
+    font-weight: 600;
+  }
+  
+  header#jumbotron{
+    background-image: url("./image.webp");
+    background-repeat: no-repeat;
+    max-width: 100vw;
+    background-size: cover;
+    min-height: 100vh;
+    background-position: center;
+    display: grid;
+    place-content: center;
+    position: relative;
+    z-index: -1;
+  }
+  header#jumbotron::before{
+    content: "";
+    width: 100vw;
+    position: absolute;
+    height: 100vh;
+    background: rgba(0,0,0,0.3);
+  }
+  header#jumbotron::after{
+    content: "";
+    width: 100vw;
+    position: absolute;
+    height: 100vh;
+    background-image: linear-gradient(to top, white, transparent 95%);
+  }
+  header#jumbotron .header-content{
+    text-align: center;
+    max-width: 70vw;
+    z-index: 1;
+  }
+  
+  header#jumbotron .header-content h1{
+    color: white;
+    font-size: 4em;
+    letter-spacing: 2px;
+    margin-bottom: 10px;
+  }
+  
+  header#jumbotron .header-content p{
+    font-weight: 300;
+    font-size: 1.2em;
+    color: black;
+  }
+  
+  section{
+    min-height: 100vh;
+  }
+  section .section-title{
+    margin-top: 75px;
+    text-align: center;
+    color: black;
+    font-size: 2em;
+    letter-spacing: 1px;
+    text-transform: capitalize;
+  }
+  footer{
+    padding: 30px;
+    width: 100vw;
+    background: #a3a3a3;
+    color: white;
+    text-align: center;
+  }
+  
+  nav.active{
+    background: white;
+  box-shadow: 0 10px 8px -7px rgba(0,0,0,0.2);
+  }
+  nav.active .logo{
+    color: black;
+  }
+  nav#navbar.active .menu-wrapper .menu-item{
+    color: #adadad;
+  }
+  nav.active .menu-toggler span{
+    background-color: black;
+  }
+  nav#navbar.active .menu-wrapper .menu-item:hover{
+    color: black;
+  }
+  .menu-toggler{
+    display: none;
+    margin-right: 10px;
+  }
+  .top{
+    padding: 15px 20px;
+    background: #ddd;
+    color: black;
+    position: fixed;
+    right: 20px;
+    bottom: 50px;
+    transform: translateY(-30px);
+    transition: .5s;
+    opacity: 0;
+    pointer-events: none;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 50%;
+  }
+  .top.show{
+    transform: translateY(0);
+    pointer-events: inherit;
+    opacity: 1;
+  }
+  /* responsive */
+  @media (max-width: 476px){
+    .menu-wrapper{
+      position: absolute;
+    }
+    nav#navbar{
+      z-index: 99;
+    }
+    .menu-toggler{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      align-items: center;
+      height: 20px;
+      width: 25px;
+      position: relative;
+    }
+    
+    .menu-toggler span{
+      height: 4px;
+      border-radius: 3px;
+      width: 25px;
+      background: white;
+      transition: .5s;
+    }
+    
+    .menu-toggler input{
+      position: absolute;
+      width: 25px;
+      height: 25px;
+      opacity: 0;
+      z-index: 9;
+    }
+    
+     .menu-toggler input:checked ~ span:nth-child(2){
+       transform: rotate(45deg) translate(6px,5px);
+     }
+     .menu-toggler input:checked ~ span:nth-child(3){
+       width: 0;
+     }
+     .menu-toggler input:checked ~ span:nth-child(4){
+       transform: rotate(-45deg) translate(6px,-5px);
+     }
+     nav#navbar .menu-wrapper{
+       width: 100%;
+       flex-direction: column;
+       top: 50px;
+       z-index: 0;
+       transform: translateY(-150%);
+       left: 0;
+       text-align: center;
+       transition: .5s;
+       justify-content: flex-start;
+     }
+     nav#navbar .menu-item{
+       margin: 10px auto;
+     }
+    nav#navbar .menu-wrapper.active{
+       transform: translateY(0)!important;
+       background-image: linear-gradient(to top, rgba(0,0,0,0.3), transparent);
+     }
+     nav#navbar .menu-wrapper.active .menu-item{
+       color: white;
+       font-size: 1.3em;
+     }
+     nav#navbar.active .menu-wrapper{
+       background: white;
+       box-shadow: 0 10px 8px -7px rgba(0,0,0,0.2);
+     }
+     nav#navbar.active .menu-wrapper .menu-item{
+       color: black;
+     }
+  }
