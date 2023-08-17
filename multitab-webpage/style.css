@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Sans-Serif;
+    /* color: white; */
+    text-decoration: none;
+  }
+  
+  body{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+  }
+  
+  main {
+    display: grid;
+    max-width: 80vw;
+    grid-template-columns: auto auto;
+    overflow: hidden;
+    gap: 20px;
+    max-height: 300px;
+  }
+  
+  main figure.image-wrapper{
+    width: 40vw;
+    overflow: hidden;
+  }
+  main figure.image-wrapper img{
+    width: 40vw;
+    border-radius: 7px;
+    object-fit: cover;
+    height: 300px;
+  }
+  
+  main .caption-wrapper .tab-wrapper button{
+    all: unset;
+    padding:10px 15px;
+    background: #ddd;
+    cursor: pointer;
+    border-radius: 4px;
+    color: black;
+    text-transform: capitalize;
+  }
+  main .caption-wrapper .tab-wrapper button.active{
+    background: black;
+    color: white;
+  }
+  main .caption-wrapper .tab-wrapper{
+    margin-bottom: 15px;
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+  }
+  
+  main .caption-wrapper figcaption{
+    max-height: 280px;
+    overflow-y: auto;
+  }
