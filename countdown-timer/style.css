@@ -1,0 +1,40 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Sans-Serif;
+    /* color: white; */
+    text-decoration: none;
+  }
+  
+  body{
+    display: grid;
+    place-items: center;
+    min-height: 100vh;
+  }
+  main {
+    max-width: 80vw;
+    
+  }
+  
+  main h1{
+    font-size: 2em;
+    text-transform: uppercase;
+    text-align: center;
+  }
+  main p {
+    text-align: center;
+    font-size: 1.4em;
+  }
+  main .wrapper{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+  }
+  main .wrapper div{
+    color: white;
+    background: black;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
