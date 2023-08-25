@@ -8,16 +8,19 @@ function displayList(data = listData){
   // dispay all list items from listData array
   data.forEach((d,i) => {
       itemsWrapper.innerHTML += `<li>
-         <div class="item">
-           <span data-index="${i}">${d}</span>
+         <div class="item" data-index="${i}">
+           <span id="list-name">${d}</span>
            <div class="action-btns">
              <button type="button" data-action="delete" data-index="${i}">delete</button>
-             <button type="button" data-action="done" data-index="${i}">done</button>
            </div>
          </div>`
   })
 }
 displayList()
+// function list done
+function listDone(el){
+  el.classList.toggle("done")
+}
 // form on submit
 form.addEventListener("submit", e => {
   // prevent reloading
@@ -29,39 +32,36 @@ form.addEventListener("submit", e => {
    // display submited data to webpage
   let i = listData.length - 1
   itemsWrapper.innerHTML += `<li>
-         <div class="item">
-           <span data-index="${i}">${inputList.value}</span>
+         <div class="item" data-index="${i}">
+           <span id="list-name">${inputList.value}</span>
            <div class="action-btns">
               <button type="button" data-action="delete" 
               data-index="${i}">delete</button>
-             <button type="button" data-action="done" data-index="${i}">done</button>
            </div>
          </div>`
   // clear input value
   inputList.value = ""
 })
 
-window.addEventListener("DOMContentLoaded", () => {
-
-// select items
-const item = document.querySelectorAll
-  window.addEventListener("click", e => {
-    // check that clicked button is a action btn
+window.addEventListener("load", () => {
+  window.addEventListener("click", function (e){
+   
+    // if list item cliced
+      if (e.target.classList.contains("item")){
+        const items = document.querySelectorAll("span#list-name")
+        const itemID = e.target.dataset.index
+        // line-through the clicked item
+        listDone(items[itemID])
+      }
+     // check that clicked button is a action btn
     if(e.target.hasAttribute("data-action")){
       const btn = e.target
       //get id
       const id = btn.dataset.index
       // checking action btn that clicked
-      if (btn.dataset.action == "done"){
-        // get text list element
-        const items = document.querySelectorAll("span[data-index]")
-        items.forEach(item => {
-          if (id == item.dataset.index){
-            btn.innerText = "ok"
-          }
-        })
-      }else{
-        // if delete btn clicked remove item from the array
+     
+      if (btn.dataset.action == "delete"){
+         // if delete btn clicked remove item from the array
         listData.splice(id,1)
       }
       itemsWrapper.innerHTML = ""
