@@ -1,63 +1,70 @@
 *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Sans-Serif;
-    /* color: white; */
-    text-decoration: none;
-  }
-  .char-wrapper img{
-    height: 150px;
-    border-radius: 50%;
-    transition: .5s;
-    border: 5px solid white;
-    transition: .5s;
-  }
-  .char-wrapper{
-    position: relative;
-  }
-  .char-wrapper img:hover{
-    transform: scale(1.1);
-    border: 5px solid lightgreen;
-  }
-  .char-wrapper [data-character]::before{
-    content: "x";
-    background: red;
-    position: absolute;
-    height: 50px;
-    width: 50px;
-  }
-  .char-wrapper [data-character].selected{
-    transform: scale(1.1);
-    border: 10px solid lightgreen;
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0 auto;
-    z-index: 1;
-  }
-  .cancel-btn{
-    color: white;
-    font-size: 2em;
-    background: darkblue;
-    cursor: pointer;
-    padding: 5px 10px;
-    border-radius: 4px;
-    z-index: 9;
-    position: absolute;
-    bottom: -55px;
-    left: 50%;
-    transform: translateX(-50%);
-  }
-  .main-container {
-    text-align: center;
-    margin-top: 100px;
-  }
-  .title{
-    margin-bottom: 30px;
-  }
-  .remove{
-    transform: scale(0);
-    pointer-events: none;
-    visibility: hidden;
-  }
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Sans-Serif;
+  /* color: white; */
+  text-decoration: none;
+}
+.char-wrapper img{
+  height: 150px;
+  border-radius: 50%;
+  transition: .5s;
+  border: 5px solid white;
+  transition: .5s;
+}
+.char-wrapper{
+  position: relative;
+}
+.char-wrapper img:hover{
+  transform: scale(1.1);
+  border: 5px solid lightgreen;
+}
+.char-wrapper [data-character].selected{
+  transform: scale(1.1);
+  border: 10px solid lightgreen;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 0 auto;
+  z-index: 1;
+}
+.action-btn{
+  color: white;
+  font-size: 2em;
+  cursor: pointer;
+  padding: 5px 10px;
+  border-radius: 4px;
+  z-index: 9;
+  bottom: -55px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.main-container {
+  text-align: center;
+  margin-top: 50px;
+}
+.title{
+  margin-bottom: 30px;
+}
+.remove{
+  transform: scale(0);
+  pointer-events: none;
+  visibility: hidden;
+}
+
+[data-action=fight]{
+  background: darkblue;
+}
+[data-action=cancel]{
+  background: darkred;
+}
+
+.btn-wrapper{
+  display: flex;
+  gap: 10px;
+  position: absolute;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-30%);
+}
