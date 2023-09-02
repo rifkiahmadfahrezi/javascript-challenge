@@ -16,7 +16,7 @@ selectImages.forEach((img,i) => {
           el.style.display = "none"
           btnWrapper.innerHTML = `
           <a href="#" onclick="resetChar()" data-action="cancel" class="action-btn">cancel</a>
-          <a href="#" onclick="fight(${character},${opponent})" data-action="fight" class="action-btn">fight!</a>`
+          <a href="#" onclick="fight('${character}','${getOpponent()}')" data-action="fight" class="action-btn">fight!</a>`
         },500)
       }
     })
@@ -39,9 +39,13 @@ function resetChar(){
   })
 }
 function fight(myChar,opponent){
-  charWrapper.innerHTML += `VS
-  <img src="${opponent}.jpg" data-character="${opponent}" alt="${opponent} image">
-  `
+  selectImages.forEach(el => {
+    el.classList.remove("selected")
+  })
+  charWrapper.innerHTML += `<span class="vs">VS</span>
+  <img src="${opponent}.jpg" data-character="${opponent}" alt="${opponent} image">`
+  btnWrapper.innerHTML = `
+  <a href="#" onclick="resetChar()" data-action="reselect" class="action-btn">Select and fight again!</a>`
   const title = document.querySelector(".title")
   if (myChar == opponent){
     title.innerText = "DRAW"
@@ -64,4 +68,5 @@ function fight(myChar,opponent){
       title.innerText = "YOU WIN!" 
     }
   }
+   
 }
